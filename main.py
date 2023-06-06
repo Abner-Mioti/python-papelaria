@@ -11,7 +11,7 @@ usuarioService = UsuarioService()
 produtoService = ProdutosService()
 vendaService = VendaService()
 sobreService = SobreService()
-apiViaCepService = APIViaCepService(14680000)
+apiViaCepService = APIViaCepService(14010030)
 
 #-------------------Clear-------------------------------
 def clearConsole():
@@ -128,11 +128,11 @@ def atualizarUsuario():
 #-------------------Função de Produtos------------------
 def criarProduto():
     nome = input("Digite o nome do produto: ")
-    preço_venda = input("Digite o preço da venda do produto: ")
-    preço_compra = input("Digite o preço da compra do produto: ")
+    preco_venda = input("Digite o preço da venda do produto: ")
+    preco_compra = input("Digite o preço da compra do produto: ")
     grupo = input("Digite o grupo do produto: ")
     quantidade_em_estoque = input("Quantidade em estoque: ")
-    produtoService.criarProduto(nome, preço_venda, preço_compra, grupo, quantidade_em_estoque)
+    produtoService.criarProduto(nome, preco_venda, preco_compra, grupo, quantidade_em_estoque)
     print(f"Produto criado com sucesso!!!")
     input("Pressione Enter para continuar...")
 
@@ -146,20 +146,20 @@ def getAllProdutos():
     produtos = produtoService.getAll()
     for produto in produtos:
          print(f"Nome: {produto.nome}")
-         print(f"Preço de venda: {produto.preço_venda}")
-         print(f"Preço de compra: {produto.preço_compra}")
+         print(f"Preço de venda: {produto.preco_venda}")
+         print(f"Preço de compra: {produto.preco_compra}")
          print(f"Grupo: {produto.grupo}")
-         print(f"Quantidade em estoque: {produto.quantidade_em_estoque}")
          print(f"Quantidade em estoque: {produto.quantidade_em_estoque}")
          print(f"|----------------------------------------|")
     input("Pressione Enter para continuar...")
+    produtos = []
 
 def getByIdProdutos():
     id_produto = int(input("Digite o Id do produto para buscar o produto: "))
     produto = produtoService.getById(id_produto)
     print(f"Nome: {produto.nome}")
-    print(f"Preço de venda: {produto.preço_venda}")
-    print(f"Preço de compra: {produto.preço_compra}")
+    print(f"Preço de venda: {produto.preco_venda}")
+    print(f"Preço de compra: {produto.preco_compra}")
     print(f"Grupo: {produto.grupo}")
     print(f"Quantidade em estoque: {produto.quantidade_em_estoque}")
     input("Pressione Enter para continuar...")
@@ -167,11 +167,11 @@ def getByIdProdutos():
 def atualizarProduto():
     id_produto = input("Digite o Id do produto para atualizar: ")
     nome = input("Digite o novo nome do produto: ")
-    preço_venda = input("Digite o novo preço de venda do produto: ")
-    preço_compra = input("Digite o novo preço de compra do produto: ")
+    preco_venda = input("Digite o novo preço de venda do produto: ")
+    preco_compra = input("Digite o novo preço de compra do produto: ")
     grupo = input("Digite o novo grupo do produto: ")
     quantidade_em_estoque = input("Digite a nova quantidade em estoque: ")
-    produtoService.updateProduto(id_produto, nome, preço_venda, preço_compra, grupo, quantidade_em_estoque)
+    produtoService.updateProduto(id_produto, nome, preco_venda, preco_compra, grupo, quantidade_em_estoque)
 #--------------------------------------------------
 
 #-------------------Função de Venda---------------
@@ -201,6 +201,7 @@ def getAllVenda():
          print(f"Valor Total: {venda.valor_total}")
          print(f"|----------------------------------------|")
     input("Pressione Enter para continuar...")
+    clearConsole()
 
 def getByIdVenda():
     id_venda = int(input("Digite o Id da venda para buscar a venda: "))
@@ -246,7 +247,7 @@ while True:
                 print("2. Gerenciar Produtos")
                 print("3. Gerenciar Vendas")
                 print("4. Sobre Projeto")
-                print("5. Local da Loja")
+                print("5. Código Postal")
                 print("6. Exportar todos os dados JSON")
                 print("7. Sair")
     

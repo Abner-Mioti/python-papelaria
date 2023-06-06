@@ -8,8 +8,8 @@ class Produtos(Base):
 
     id_produto = Column(Integer, primary_key=True)
     nome = Column(String)
-    preço_venda = Column(Float)
-    preço_compra = Column(Float)
+    preco_venda = Column(Float)
+    preco_compra = Column(Float)
     grupo = Column(String)
     quantidade_em_estoque = Column(Integer)
 
@@ -19,8 +19,8 @@ class Produtos(Base):
         return {
             'id_produto': self.id_produto,
             'nome': self.nome,
-            'preço_venda': self.preço_venda,
-            'preço_compra': self.preço_compra,
+            'preco_venda': self.preco_venda,
+            'preco_compra': self.preco_compra,
             'grupo': self.grupo,
             'quantidade_em_estoque': self.quantidade_em_estoque
         }

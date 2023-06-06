@@ -6,20 +6,21 @@ class ProdutosService:
         self.repositorio = ProdutosRepositorio()
     
     def getAll(self):
-        return self.repositorio.getAll()
+        produtos = self.repositorio.getAll()
+        return produtos
 
     def getById(self, idProduto):
         return self.repositorio.getById(idProduto)
 
-    def criarProduto(self, nome, preço_venda, preço_compra, grupo, quantidade_em_estoque):
-        produto = Produtos(nome=nome, preço_venda=preço_venda, preço_compra=preço_compra, grupo=grupo, quantidade_em_estoque=quantidade_em_estoque)
+    def criarProduto(self, nome, preco_venda, preco_compra, grupo, quantidade_em_estoque):
+        produto = Produtos(nome=nome, preco_venda=preco_venda, preco_compra=preco_compra, grupo=grupo, quantidade_em_estoque=quantidade_em_estoque)
         self.repositorio.criarProduto(produto)
 
-    def updateProduto(self, id_produto, nome, preço_venda, preço_compra, grupo, quantidade_em_estoque):
+    def updateProduto(self, id_produto, nome, preco_venda, preco_compra, grupo, quantidade_em_estoque):
         produto = self.repositorio.getById(id_produto)
         produto.nome = nome
-        produto.preço_venda = preço_venda
-        produto.preço_compra = preço_compra
+        produto.preco_venda = preco_venda
+        produto.preco_compra = preco_compra
         produto.grupo = grupo
         produto.quantidade_em_estoque = quantidade_em_estoque
         self.repositorio.updateProduto(produto)
